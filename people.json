@@ -1,0 +1,22 @@
+[
+    {
+        "name": "zden",
+        "age": 18,
+        "isEmployed": false,
+        "hobbies": "lovení 12tek"
+    }
+    ,
+    {
+        "name": "kochy",
+        "age": 19,
+        "isEmployed": false,
+        "hobbies": "matika"
+    }
+    ,
+    {
+        "name": "dan",
+        "age": 18,
+        "isEmployed": false,
+        "hobbies": "gambling"
+    }
+]
