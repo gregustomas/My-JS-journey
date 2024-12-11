@@ -1,47 +1,64 @@
 const addTask = document.getElementById("add-task");
 const cardContainer = document.getElementById("task-container");
 
+// Funkce pro načtení úkolů z localStorage
+function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.forEach(task => createTaskCard(task));
+}
 
-addTask.addEventListener("click", () => {
-
-    //input a validace
-    const taskInput = document.getElementById("input");
-    const task = taskInput.value.trim();
-
-    //vytvoření task karty
+// Funkce pro vytvoření karty úkolu
+function createTaskCard(task) {
     const card = document.createElement('div');
     card.className = "card";
+    
     const newTask = document.createElement("p");
     newTask.className = "task";
-    //validace vstupu a přidání karty
-    if(task){
-        newTask.textContent = task;
-        card.appendChild(newTask);
-        cardContainer.appendChild(card);
-    }
-    else{
-        window.alert("Task input is empty!");
-    }
+    newTask.textContent = task;
+    card.appendChild(newTask);
     
-    //delete funkce
+    // Přidání tlačítka pro smazání
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     card.appendChild(deleteBtn);
-
+    
     deleteBtn.addEventListener("click", () => {
         card.remove();
-    })
-
-    //reset inputu
-    taskInput.value = "";
+        removeTaskFromStorage(task); // Odstranit úkol z localStorage
+    });
     
-})
-
-function saveTasks(){
-    let tasks = [];
-    cardContainer.querySelectorAll('div').forEach(function(card){
-        tasks.push(card.textContent);
-    })
-    localStorage.setItem('tasks', JSON.stringify(tasks))
+    cardContainer.appendChild(card);
 }
+
+// Funkce pro odstranění úkolu z localStorage
+function removeTaskFromStorage(task) {
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const updatedTasks = tasks.filter(t => t !== task); // Odstranit úkol
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+}
+
+// Při kliknutí na tlačítko přidat úkol
+addTask.addEventListener("click", () => {
+    const taskInput = document.getElementById("input");
+    const task = taskInput.value.trim();
+    
+    if (task) {
+        createTaskCard(task); // Vytvořit kartu úkolu
+        
+        // Uložit úkol do localStorage
+        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks.push(task);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        
+        taskInput.value = ""; // Reset inputu
+    } else {
+        window.alert("Task input is empty!");
+    }
+});
+
+// Načíst uložené úkoly při načtení stránky
+loadTasks();
+
+
+
 

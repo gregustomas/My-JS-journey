@@ -49,4 +49,9 @@ button {
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: hsl(198, 30%, 42%);
 }
