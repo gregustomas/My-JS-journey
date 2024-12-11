@@ -1,0 +1,56 @@
+header {
+    width: 100vw;
+    height: 30vh;
+    margin: auto;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 100px 100px;
+}
+
+main {
+    margin: 64px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: fit-content;
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+}
+
+#input {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0px 0px 12px var(--primary-color);
+    min-width: 250px;
+}
+
+#task-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 100%;
+    min-height: 100px;
+    border-radius: 8px;
+    box-shadow: 0 0 12px var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+.task {
+    max-width: 230px;
+    word-wrap: break-word;
+}
