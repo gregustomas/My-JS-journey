@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: hsl(48, 100%, 70%);
+}
+
+#logo {
+    width: 300px;
+}
+
+#PokomonName {
+    min-width: 200px;
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #0a285f;
+}
+
+#button {
+    font-size: 2rem;
+    padding: 10px;
+    border: 2px solid #0a285f;
+    border-radius: 10px;
+    background-color: #0062b0;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+form {
+    display: flex;
+    gap: 25px;
+}
+
+#pokemon {
+    width: 250px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+}
